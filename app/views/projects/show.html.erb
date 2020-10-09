@@ -1,3 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+      <div class="card-header d-flex justify-content-between">
+
+      </div>
+      <ul class="list-group">
+        <div class="card-header">
+          <% @projects.each do |project| %>
+            <li class="list-group-item">
+              <%= fa_icon 'calendar' %>
+              <%= project.name %>
+              <%= link_to fa_icon('pencil'), edit_project_path(project) %>
+              <%= link_to fa_icon('trash'), project, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </li>
+          <% end %>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'New Project', new_project_path, class: "btn btn-primary btn-lg", type: "button" %>
+
+
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
