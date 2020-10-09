@@ -55,3 +55,20 @@ body {
   font-size: 0.6em;
   font-weight: normal;
 }
+
+.inner {
+  padding: 2rem;
+}
+
+.masthead {
+  margin-bottom: 2rem;
+  position: fixed;
+  top: 0;
+}
+
+.mastfoot {
+  color: rgba(255,255,255,.5);
+  position: absolute;
+  left: 37%;
+  bottom: 0;
+}
