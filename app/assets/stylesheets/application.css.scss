@@ -1,1 +1,57 @@
 @import "bootstrap";
+
+.auth {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  margin-left: -150px;
+  width: 300px;
+  background-color: #fff;
+  border: 10px solid #fff;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+html, body {
+  background: #cc8810;
+  background: linear-gradient(to bottom, #d9d4c2 0%,#d9d4c2 25%,#cc8810 75%,#cc8810) no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 66px;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+}
+
+.head {
+  height: 1.5em;
+  line-height: 1.5em;
+  text-align: right;
+  padding-right: 10px;
+  background-color: #aaa;
+}
+
+.page-title {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.page-title .sub {
+  font-size: 0.6em;
+  font-weight: normal;
+}

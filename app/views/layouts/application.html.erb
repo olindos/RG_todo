@@ -10,6 +10,22 @@
   </head>
 
   <body>
+    <div class="page" id="page">
+      <% if current_user %>
+        <div class="head">
+          You are logged in as
+          <%= current_user.email %>
+          |
+          <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+        </div>
+      <% end %>
+      <div class="page-title">
+        SIMPLE TODO LIST
+        <div class="sub">
+          FROM RUBY GARAGE
+        </div>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
