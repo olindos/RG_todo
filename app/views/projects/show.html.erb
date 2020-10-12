@@ -8,14 +8,35 @@
           </span>
           <%= link_to fa_icon('pencil'), edit_project_path(@project) %>
         </div>
-
-        <ul class="list-group">
-          <% @project.tasks.each do |task| %>
-            <li class='list-group-item'>
-              <%= task.name %>
-            </li>
-          <% end %>
-        </ul>
+        <div class="card-body">
+          <div class="input-group mb-4">
+            <input type="text" class="form-control" placeholder="Add a new task">
+            <div class="input-group-append">
+              <%= link_to 'Add', new_project_task_path([@project, @task]), class: 'btn btn-primary input-group-btn' %>
+            </div>
+          </div>
+          <ul class="list-group">
+            <% @project.tasks.each do |task| %>
+              <% if task.status? %>
+                <li class='list-group-item bg-light'>
+                  <%= link_to '#', class: "btn btn-dark" do %>
+                    <i class="fa fa-times"></i>
+                  <% end %>
+                  <span class="text-muted">
+                    <em><%= task.name %></em>
+                  </span>
+                </li>
+                <% else %>
+                <li class='list-group-item'>
+                  <%= link_to '#', class: "btn btn-success" do %>
+                    <i class="fa fa-check"></i>
+                  <% end %>
+                  <%= task.name %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
