@@ -57,19 +57,15 @@ body {
   font-weight: normal;
 }
 
-.inner {
-  padding: 2rem;
-}
-
-.masthead {
-  margin-bottom: 2rem;
-  position: fixed;
-  top: 0;
-}
-
 .mastfoot {
   color: rgba(255,255,255,.5);
   position: absolute;
-  left: 37%;
+  left: 41%;
   bottom: 0;
 }
+
+.btn-lg{
+   position: fixed;
+   left: 45%;
+   top: 85%;
+ }
