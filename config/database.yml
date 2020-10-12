@@ -3,10 +3,13 @@ development:
   encoding: unicode
   database: RG_todo_development
   pool: 5
+  username: ol
+  password: barby
 
 production:
   adapter: postgresql
   encoding: unicode
   database: RG_todo_production
   pool: 5
-
+  username: ol
+  password: barby
