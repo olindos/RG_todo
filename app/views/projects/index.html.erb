@@ -1,19 +1,27 @@
-<div class="card-header d-flex justify-content-between">
-  <span>
-    Todo List
-  </span>
-  <%= link_to 'Add TODO list', new_project_path, class: "btn btn-primary", type: "button" %>
-</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+      <div class="card mt-5">
+        <div class="card-header d-flex justify-content-between">
+          <span>
+            Todo List
+          </span>
+          <%= link_to 'Add TODO list', new_project_path, class: "btn btn-primary", type: "button" %>
+        </div>
 
-<ul class="list-group">
-  <% @projects.each do |project| %>
-    <li class="list-group-item">
-      <div class="d-flex justify-content-between align-items-center">
-        <%= fa_icon 'calendar' %>
-        <h4><b><%= project.name %></b></h4>
-        <%= link_to fa_icon('pencil'), edit_project_path(project) %>
-        <%= link_to fa_icon('trash'), project, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <ul class="list-group">
+          <% @projects.each do |project| %>
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-center">
+                <%= fa_icon 'calendar' %>
+                <h4><b><%= project.name %></b></h4>
+                <%= link_to fa_icon('pencil'), edit_project_path(project) %>
+                <%= link_to fa_icon('trash'), project, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
       </div>
-    </li>
-  <% end %>
-</ul>
+    </div>
+  </div>
+</div>

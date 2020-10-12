@@ -1,14 +1,22 @@
-<div class="card-header d-flex justify-content-between">
-  <span>
-    <h4><b><%= @project.name %></b></h4>
-  </span>
-  <%= link_to fa_icon('pencil'), edit_project_path(@project) %>
-</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+      <div class="card mt-5">
+        <div class="card-header d-flex justify-content-between">
+          <span>
+            <h4><b><%= @project.name %></b></h4>
+          </span>
+          <%= link_to fa_icon('pencil'), edit_project_path(@project) %>
+        </div>
 
-<ul class="list-group">
-  <% @project.tasks.each do |task| %>
-    <li class='list-group-item'>
-      <%= task.name %>
-    </li>
-  <% end %>
-</ul>
+        <ul class="list-group">
+          <% @project.tasks.each do |task| %>
+            <li class='list-group-item'>
+              <%= task.name %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
