@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = set_project
+    @task = Task.new
   end
 
   def new

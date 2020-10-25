@@ -3,18 +3,30 @@
     <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
       <div class="card mt-5">
         <div class="card-header d-flex justify-content-between">
-          <span>
-            <h4><b><%= @project.name %></b></h4>
-          </span>
+          <div>
+            <h5 class="m-0">
+              <b><%= @project.name %></b>
+              <span class="badge badge-<%= @project.badge_color %>"><%= @project.progress %></span>
+            </h5>
+            <p class="text-secondary m-0"><small><%= @project.percent_complete %>% Complete ( <%= @project.completed_tasks %>/<%= @project.total_tasks %> Tasks )</small></p>
+          </div>
           <%= link_to fa_icon('pencil'), edit_project_path(@project) %>
         </div>
+
         <div class="card-body">
-          <div class="input-group mb-4">
-            <input type="text" class="form-control" placeholder="Add a new task">
-            <div class="input-group-append">
-              <%= link_to 'Add', new_project_task_path([@project, @task]), class: 'btn btn-primary input-group-btn' %>
-            </div>
+          <div class="progress mb-4">
+            <div class="progress-bar bg-info" role="progressbar" style="width: <%= @project.percent_complete %>%" aria-valuenow="<%= @project.percent_complete %>" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
+
+          <%= simple_form_for([@project, @task]) do |f| %>
+            <div class="input-group mb-4">
+              <%= f.text_field :name, class: 'form-control', placeholder: "Add a new task" %>
+              <div class="input-group-append">
+                <%= f.submit 'Add', class: 'btn btn-primary input-group-btn' %>
+              </div>
+            </div>
+          <% end %>
+
           <ul class="list-group">
             <% @project.tasks.each do |task| %>
               <% if task.status? %>
@@ -25,13 +37,17 @@
                   <span class="text-muted">
                     <em><%= task.name %></em>
                   </span>
+                  <%= link_to fa_icon('pencil'), edit_project_task_path(task.project_id, task.id) %>
+                  <%= link_to fa_icon('trash'), project_task_path(task.project_id, task.id), method: :delete, data: { confirm: 'Are you sure?' } %>
                 </li>
                 <% else %>
                 <li class='list-group-item'>
-                  <%= link_to '#', class: "btn btn-success" do %>
+                  <%= link_to '#', class: "btn btn-info" do %>
                     <i class="fa fa-check"></i>
                   <% end %>
                   <%= task.name %>
+                  <%= link_to fa_icon('pencil'), edit_project_task_path(task.project_id, task.id) %>
+                  <%= link_to fa_icon('trash'), project_task_path(task.project_id, task.id), method: :delete, data: { confirm: 'Are you sure?' } %>
                 </li>
               <% end %>
             <% end %>
