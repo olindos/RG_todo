@@ -1,5 +1,6 @@
 <%= simple_form_for([@project, @task]) do |f| %>
   <%= f.input :name %>
-  <%= f.input :status, as: :boolean %>
+  <%= f.input :status, as: :boolean, checked_value: true, unchecked_value: false %>
+  <%= f.input :completed_at, as: :date, order: [:day, :month, :year] %>
   <%= f.button :submit %>
 <% end %>
