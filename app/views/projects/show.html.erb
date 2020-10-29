@@ -31,7 +31,7 @@
             <% @project.tasks.each do |task| %>
               <% if task.status? %>
                 <li class='list-group-item bg-light'>
-                  <%= link_to '#', class: "btn btn-dark" do %>
+                  <%= link_to '#', class: "btn btn-dark", data: { reflex: 'click->ExampleReflex#mark_incomplete', id: task.id } do %>
                     <i class="fa fa-times"></i>
                   <% end %>
                   <span class="text-muted">
@@ -42,7 +42,7 @@
                 </li>
                 <% else %>
                 <li class='list-group-item'>
-                  <%= link_to '#', class: "btn btn-info" do %>
+                  <%= link_to '#', class: "btn btn-info", data: { reflex: 'click->ExampleReflex#mark_complete', id: task.id } do %>
                     <i class="fa fa-check"></i>
                   <% end %>
                   <%= task.name %>
