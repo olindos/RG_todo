@@ -6,21 +6,27 @@
           <h4>
             <b>My Todo Lists</b>
           </h4>
-          <%= link_to 'Add TODO list', new_project_path, class: "btn btn-primary", type: "button" %>
+          <%= link_to 'Add TODO list', new_project_path, class: "btn btn-primary btm-sm" %>
         </div>
 
-        <ul class="list-group">
-          <% @projects.each do |project| %>
-            <li class="list-group-item">
-              <div class="d-flex justify-content-between align-items-center">
-                <%= fa_icon 'calendar' %>
-                <h4><b><%= project.name %></b></h4>
-                <%= link_to fa_icon('pencil'), edit_project_path(project) %>
-                <%= link_to fa_icon('trash'), project, method: :delete, data: { confirm: 'Are you sure?' } %>
-              </div>
-            </li>
-          <% end %>
-        </ul>
+        <div class="card-body">
+          <ul class="list-group">
+            <% @projects.each do |project| %>
+              <%= link_to project, class: 'text-decoration-none' do %>
+                <li class="list-group-item d-flex justify-content-between">
+                  <div>
+                    <h5 class='m-0 text-dark'>
+                      <b><%= project.name %></b>
+                      <span class="badge badge-<%= project.badge_color %>"><%= project.progress %></span>
+                    </h5>
+                    <p class="text-secondary m-0"><small><%= project.percent_complete %>% Complete ( <%= project.completed_tasks %>/<%= project.total_tasks %> Tasks )</small>
+                    </p>
+                  </div>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

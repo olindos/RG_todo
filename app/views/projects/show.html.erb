@@ -2,15 +2,26 @@
   <div class="row">
     <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
       <div class="card mt-5">
-        <div class="card-header d-flex justify-content-between">
-          <div>
-            <h5 class="m-0">
-              <b><%= @project.name %></b>
-              <span class="badge badge-<%= @project.badge_color %>"><%= @project.progress %></span>
-            </h5>
-            <p class="text-secondary m-0"><small><%= @project.percent_complete %>% Complete ( <%= @project.completed_tasks %>/<%= @project.total_tasks %> Tasks )</small></p>
+        <div class="card-header">
+          <div class="row">
+            <div class="col-1">
+              <%= link_to fa_icon('angle-left'), projects_path, class: 'btn btn-dark' %>
+            </div>
+            <div class="col-11">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <h5 class="m-0">
+                    <b><%= @project.name %></b>
+                    <span class="badge badge-<%= @project.badge_color %>"><%= @project.progress %></span>
+                  </h5>
+                  <p class="text-secondary m-0"><small><%= @project.percent_complete %>% Complete ( <%= @project.completed_tasks %>/<%= @project.total_tasks %> Tasks )</small></p>
+                </div>
+                <div class="col-1">
+                  <%= link_to fa_icon('pencil'), edit_project_path(@project), class: 'btn btn-dark' %>
+                </div>
+              </div>
+            </div>
           </div>
-          <%= link_to fa_icon('pencil'), edit_project_path(@project) %>
         </div>
 
         <div class="card-body">
@@ -31,8 +42,8 @@
             <% @project.tasks.each do |task| %>
               <% if task.status? %>
                 <li class='list-group-item bg-light'>
-                  <%= link_to '#', class: "btn btn-dark", data: { reflex: 'click->ExampleReflex#mark_incomplete', id: task.id } do %>
-                    <i class="fa fa-times"></i>
+                  <%= link_to '', class: "btn btn-dark", data: { reflex: 'click->ExampleReflex#mark_incomplete', id: task.id } do %>
+                    <i class="fa fa-undo"></i>
                   <% end %>
                   <span class="text-muted">
                     <em><%= task.name %></em>
@@ -42,7 +53,7 @@
                 </li>
                 <% else %>
                 <li class='list-group-item'>
-                  <%= link_to '#', class: "btn btn-info", data: { reflex: 'click->ExampleReflex#mark_complete', id: task.id } do %>
+                  <%= link_to '', class: "btn btn-info", data: { reflex: 'click->ExampleReflex#mark_complete', id: task.id } do %>
                     <i class="fa fa-check"></i>
                   <% end %>
                   <%= task.name %>
