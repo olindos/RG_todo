@@ -19,7 +19,6 @@ Bundler.require(*Rails.groups)
 
 module RGTodo
   class Application < Rails::Application
-    config.action_dispatch.default_headers.merge!('Cache-Control' => 'no-store, no-cache')
     config.load_defaults 5.2
     config.generators.system_tests = nil
   end
