@@ -93,10 +93,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.cache_store = :redis_cache_store, {driver: :hiredis, url: ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" }}
-    config.session_store :cache_store,
-    key: "_session",
-    compress: true,
-    pool_size: 5,
-    expire_after: 1.year
+  if ENV["REDISCLOUD_URL"]
+    $redis = Redis.new(:url => ENV["REDISCLOUD_URL"])
+  end
 end
+
