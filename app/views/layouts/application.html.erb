@@ -28,14 +28,12 @@
         </div>
       </div>
     </div>
+
     <p id="notice"><%= notice %></p>
     <%= yield %>
 
     <div class="mastfoot">
-      <span>
-        <%= link_to 'Add TODO list', new_project_path, class: "btn btn-primary btn-lg", type: "button" %>
-      </span>
-        <p class="app-footer"><%= copyright_generator %></p>
+     <p class="app-footer"><%= copyright_generator %></p>
     </div>
   </body>
 </html>
