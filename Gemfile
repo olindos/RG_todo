@@ -25,6 +25,7 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'jquery-rails', '~> 4.4'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'olindos_view_tool', git: 'https://github.com/olindos/olindos_view_tool'
