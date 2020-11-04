@@ -7,7 +7,7 @@ development: &development
 test: *development
 production: &production
   :url:     redis://default:aXH1XclkbtHfxZr4dz9yUg7Y7RczMOrX@redis-12654.c244.us-east-1-2.ec2.cloud.redislabs.com:12654
-  :host: redis-12654.c244.us-east-1-2.ec2.cloud.redislabs
+  :host: redis-12654.c244.us-east-1-2.ec2.cloud.redislabs.com
   :port: 12654
   :password: aXH1XclkbtHfxZr4dz9yUg7Y7RczMOrX
   :inline: true
