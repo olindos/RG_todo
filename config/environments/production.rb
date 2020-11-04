@@ -93,6 +93,9 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.middleware.use TodoActionCable
+  config.web_socket_server_url = "wss://ym-todo.herokuapp.com/"
+
   if ENV["REDISCLOUD_URL"]
     $redis = Redis.new(:url => ENV["REDISCLOUD_URL"])
   end
