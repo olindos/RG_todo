@@ -33,5 +33,5 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
 gem 'webpacker', '~> 5.2', '>= 5.2.1'
 gem 'stimulus_reflex', '~> 3.3'
-gem "redis", ">= 4.0", :require => ["redis", "redis/connection/hiredis"]
-gem "hiredis"
+gem "redis", ">= 4.0"
+gem 'middleware', '~> 0.1.0'
