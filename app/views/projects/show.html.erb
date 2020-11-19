@@ -41,25 +41,37 @@
           <ul class="list-group">
             <% @project.tasks.each do |task| %>
               <% if task.status? %>
-                <li class='list-group-item bg-light'>
-                  <%= link_to '', class: "btn btn-dark", data: { reflex: 'click->ExampleReflex#mark_incomplete', id: task.id } do %>
-                    <i class="fa fa-undo"></i>
-                  <% end %>
-                  <span class="text-muted">
-                    <em><%= task.name %></em>
-                  </span>
-                  <%= link_to fa_icon('pencil'), edit_project_task_path(task.project_id, task.id) %>
-                  <%= link_to fa_icon('trash'), project_task_path(task.project_id, task.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-                </li>
+                <div class="row">
+                  <div class="col-11">
+                    <li class='list-group-item bg-light'>
+                      <%= link_to '', class: "btn btn-dark", data: { reflex: 'click->ExampleReflex#mark_incomplete', id: task.id } do %>
+                        <i class="fa fa-undo"></i>
+                      <% end %>
+                      <span class="text-muted">
+                        <em><%= task.name %></em>
+                      </span>
+                    </li>
+                  </div>
+                  <div class="col-1">
+                    <%= link_to fa_icon('pencil'), edit_project_task_path(task.project_id, task.id) %>
+                    <%= link_to fa_icon('trash'), project_task_path(task.project_id, task.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </div>
+                </div>
                 <% else %>
-                <li class='list-group-item'>
-                  <%= link_to '', class: "btn btn-info", data: { reflex: 'click->ExampleReflex#mark_complete', id: task.id } do %>
-                    <i class="fa fa-check"></i>
-                  <% end %>
-                  <%= task.name %>
-                  <%= link_to fa_icon('pencil'), edit_project_task_path(task.project_id, task.id) %>
-                  <%= link_to fa_icon('trash'), project_task_path(task.project_id, task.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-                </li>
+                <div class="row">
+                  <div class="col-11">
+                    <li class='list-group-item'>
+                      <%= link_to '', class: "btn btn-info", data: { reflex: 'click->ExampleReflex#mark_complete', id: task.id } do %>
+                        <i class="fa fa-check"></i>
+                      <% end %>
+                      <%= task.name %>
+                    </li>
+                  </div>
+                  <div class="col-1">
+                    <%= link_to fa_icon('pencil'), edit_project_task_path(task.project_id, task.id) %>
+                    <%= link_to fa_icon('trash'), project_task_path(task.project_id, task.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </div>
+                </div>
               <% end %>
             <% end %>
           </ul>
